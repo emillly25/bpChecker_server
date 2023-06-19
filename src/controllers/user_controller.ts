@@ -1,10 +1,11 @@
 import { Request, Response, NextFunction } from "express";
-import { userModel } from "../db";
+// import { userModel } from "../db";
+import { userModelInstance } from "../db";
 
 class UserController {
   async addUser(req: Request, res: Response, next: NextFunction) {
     try {
-      const result = await userModel.postUser(req.body);
+      const result = await userModelInstance.postUser(req.body);
       console.log("결과", result);
 
       res.status(200).json(result);
